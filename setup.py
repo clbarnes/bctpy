@@ -3,7 +3,8 @@ import setuptools
 
 
 def read(fname):
-    return open(os.path.join(os.path.dirname(__file__), fname)).read()
+    with open(os.path.join(os.path.dirname(__file__), fname)) as f:
+        return f.read()
 
 setuptools.setup(
     name="bctpy",
@@ -13,6 +14,7 @@ setuptools.setup(
     description=("Brain Connectivity Toolbox for Python"),
     license="Visuddhimagga Sutta; GPLv3+",
     long_description=read('README.md'),
+    long_description_content_type="text/markdown",
     datafiles=[('', ['README.md', 'LICENSE'])],
     classifiers=[
         "Development Status :: 4 - Beta",
