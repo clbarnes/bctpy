@@ -1,8 +1,10 @@
 from load_samples import *
 import numpy as np
 import bct
+import pytest
 
 
+@pytest.mark.slow
 def test_nbs_dsi_qbi():
     q = load_sample_group_qball()
     d = load_sample_group_dsi()
@@ -13,6 +15,7 @@ def test_nbs_paired_dsi_qbi():
     pass
 
 
+@pytest.mark.slow
 def test_nbs_dsi_fmri():
     d = load_sample_group_dsi()
     f = load_sample_group_fmri()
@@ -21,7 +24,7 @@ def test_nbs_dsi_fmri():
 
 
 def test_nbs_paired_dsi_fmri():
-    pass
+    pytest.skip('Test not implemented')
 
 
 def _nbs_helper(x, y, expected_pval, atol=.05, thresh=.1, ntrials=25,

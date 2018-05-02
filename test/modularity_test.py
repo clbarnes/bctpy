@@ -1,6 +1,7 @@
 from load_samples import *
 import numpy as np
 import bct
+import pytest
 
 
 def test_modularity_und():
@@ -197,3 +198,11 @@ def test_community_louvain():
     ci, q = bct.community_louvain(x, seed=seed)
     print(q)
     assert np.allclose(q, 0.2583, atol=0.015)
+
+
+@pytest.mark.slow
+def test_link_communities():
+    x = load_sample(thres=0.4)
+    seed = 949389104
+    M = bct.link_communities(x)
+    assert np.max(M) == 1
