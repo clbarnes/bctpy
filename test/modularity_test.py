@@ -116,6 +116,7 @@ def test_modularity_finetune_und_sign_actually_finetune():
         assert q >= oq
 
 
+# @pytest.mark.slow  # >40s
 def test_modularity_probtune_und_sign():
     x = load_signed_sample()
     seed = 59468096

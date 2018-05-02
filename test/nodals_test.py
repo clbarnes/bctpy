@@ -10,6 +10,7 @@ def test_glob_eff():
     assert np.allclose(geff, 1.8784, atol=1e-4)
 
 
+# @pytest.mark.slow  # >25s
 def test_loc_eff():
     x = load_sample(thres=.4)
     leff = bct.efficiency_wei(x, local=True)
